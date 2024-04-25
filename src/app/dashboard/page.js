@@ -2,7 +2,9 @@
 
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import UserPlaylists from "@/components/UserPlaylists/UserPlaylists";
+import Navbar from "@/components/NavBar/NavBar";
 
 export default function Page(){
 
@@ -14,9 +16,12 @@ export default function Page(){
 
     return(
         <div>
-            <div>Olá, {session?.user?.name}</div>
+            <Navbar />
+            <div >Olá, {session?.user?.name}</div>
             <div>Dashboard</div>
-            <button className="button button-secondary" onClick={() => signOut()} >Sign Out</button>
+            <div className="my-6">
+                {/* <UserPlaylists /> */}
+            </div>
         </div>
     )
 }

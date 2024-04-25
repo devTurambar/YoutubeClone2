@@ -1,5 +1,6 @@
 "use client"
 import { signIn } from "next-auth/react"
+import NoSSRComponent from "@/app/NoSSRComponent/page";
 
 export default function LoginForm(){
     async function login(submit){
@@ -26,12 +27,12 @@ export default function LoginForm(){
             <input type="password" className="input input-primary w-full" placeholder="Password" name="password"/>
             <button className="btn btn-primary w-full" type="submit" >Login</button>
             <button onClick={() => signIn()} className="btn btn-secondary w-full" type="submit" >Sign In via...</button>
-            {/* <NoSSRComponent />
+            {/* <NoSSRComponent /> */}
             <div className="pointer">
-            <Link href="/NoSSRComponent">       
+            {/* <Link href="/NoSSRComponent">       
                 Click Here to go to another page bich
-            </Link>
-            </div>            */}
+            </Link> */}
+            </div>           
         </form>
     );
 }
