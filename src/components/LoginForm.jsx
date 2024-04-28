@@ -1,6 +1,6 @@
 "use client"
 import { signIn } from "next-auth/react"
-import NoSSRComponent from "@/app/NoSSRComponent/page";
+import NoSSRComponent from "../app/NoSSRComponent/page";
 
 export default function LoginForm(){
     async function login(submit){
@@ -13,7 +13,6 @@ export default function LoginForm(){
         console.log(data);
 
         //next-auth...credentials é o tipo de provider
-
         // signIn("credentials", {
         //     ...data,
         //     callbackUrl: "/dashboard"

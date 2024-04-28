@@ -17,7 +17,7 @@ async function getApi() {
   
   export default async function Axios () {
     const playlist = await getApi();
-    console.log(playlist)
+    // console.log(playlist)
     return(
         <div>
             Hello Mine Playlist

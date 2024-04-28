@@ -1,23 +1,28 @@
-'use client'
+// 'use client'
 
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { useSession } from "next-auth/react";
 import UserPlaylists from "@/components/UserPlaylists/UserPlaylists";
 import Navbar from "@/components/NavBar/NavBar";
+import { getUserSession } from "../lib/session";
 
-export default function Page(){
+export default async function Page(){
+    //client side session, useSession, uses the context API from React
+    // const { data: session } = useSession();
+    // if(!session){
+    //     redirect("/");
+    // }
 
-    const { data: session } = useSession();
-
-    if(!session){
-        redirect("/");
-    }
-
+    const user = await getUserSession();
+    console.log(user);
     return(
         <div>
             <Navbar />
-            <div >Olá, {session?.user?.name}</div>
+            {/* client side session, useSession, uses the context API from React */}
+            {/* <div >Olá, {session?.user?.name}</div> */}
+            
+            <div>Olá, {JSON.stringify(user)}</div>
             <div>Dashboard</div>
             <div className="my-6">
                 {/* <UserPlaylists /> */}
