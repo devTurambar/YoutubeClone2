@@ -1,6 +1,12 @@
 'use client'
-import { signOut } from "next-auth/react";
+import { getSession, signIn, signOut } from "next-auth/react";
+import { getUserSession } from "@/app/lib/session";
+
 const Navbar = () => {
+    // const user = getSession();
+    // console.log("user is  "+user);
+    // console.log(JSON.stringify(user));
+
     return (
         <div className="navbar bg-base-200">
             <div className="flex-1">
@@ -24,7 +30,12 @@ const Navbar = () => {
                     </a>
                     </li>
                     <li><a>Settings</a></li>
-                    <li><button onClick={() => signOut()}>Logout</button></li>
+                    <li>
+                        <button onClick={() => signOut()}>Logout</button>                    
+                    </li>
+                    {/* <li>
+                        {user ? (<button onClick={() => {console.log("logout");signOut();}}>Logout</button>) : (<button onClick={() =>{ signIn();console.log("login")}}>Login</button>)}                      
+                    </li> */}
                 </ul>
                 </div>
             </div>

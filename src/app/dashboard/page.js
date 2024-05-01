@@ -15,17 +15,16 @@ export default async function Page(){
     // }
 
     const user = await getUserSession();
-    console.log(user);
     return(
         <div>
             <Navbar />
             {/* client side session, useSession, uses the context API from React */}
             {/* <div >Olá, {session?.user?.name}</div> */}
             
-            <div>Olá, {JSON.stringify(user)}</div>
+            <div>Olá, {user?.name}</div>
             <div>Dashboard</div>
             <div className="my-6">
-                {/* <UserPlaylists /> */}
+            <UserPlaylists />
             </div>
         </div>
     )

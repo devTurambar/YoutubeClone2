@@ -10,7 +10,6 @@ export default function LoginForm(){
             email: formData.get("email"),
             password: formData.get("password")
         };
-        console.log(data);
 
         //next-auth...credentials é o tipo de provider
         // signIn("credentials", {
