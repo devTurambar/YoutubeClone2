@@ -25,12 +25,12 @@ async function getApi() {
         // const response = await axios.get(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet%2CcontentDetails&maxResults=25&mine=true&key=${process.env.YOUTUBE_API_KEY}`);
 
         console.log("HELLO");
-        console.log(response.data.items);
+        // console.log(response.data.items);
         // setList(response.data.items);
         return response.data.items;
     }catch (error) {
       console.log("ERROR")
-        console.log(error);
+        // console.log(error);
     }
 }
   

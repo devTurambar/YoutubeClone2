@@ -18,9 +18,6 @@ export default async function Page(){
     return(
         <div>
             <Navbar />
-            {/* client side session, useSession, uses the context API from React */}
-            {/* <div >Olá, {session?.user?.name}</div> */}
-            
             <div>Olá, {user?.name}</div>
             <div>Dashboard</div>
             <div className="my-6">

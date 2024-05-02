@@ -26,7 +26,8 @@ const authOption = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       // scope: "https://www.googleapis.com/auth/youtube.readonly",
       authorization: { 
-        params: { 
+        params: {
+          //The openid configuration is used for OpenID Connect, which is often used alongside OAuth2. I have included the openid profile email scopes in addition to youtube.readonly. These are commonly used scopes for retrieving basic user information...without this, the request was not working
           scope: 'https://www.googleapis.com/auth/youtube.readonly openid profile email' 
         } 
       },

@@ -1,16 +1,17 @@
-'use client'
-import { getSession, signIn, signOut } from "next-auth/react";
-import { getUserSession } from "@/app/lib/session";
+import { getSession } from "next-auth/react";
+import LogInOutButton from "./LogInOutButton/LogInOutButton";
+// import Image from 'next/image';
 
-const Navbar = () => {
-    // const user = getSession();
-    // console.log("user is  "+user);
-    // console.log(JSON.stringify(user));
-
+export default async function Navbar() {
+    const user = await getSession();
+    console.log(user);
     return (
         <div className="navbar bg-base-200">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">Youtube Clone</a>
+                <a className="btn btn-ghost text-xl">
+                    {/* <Image src="@/imgyoutube_icon.svg" /> */}
+                    Youtube Clone
+                </a>
             </div>
             <div className="flex-none gap-2">
                 <div className="form-control">
@@ -31,10 +32,10 @@ const Navbar = () => {
                     </li>
                     <li><a>Settings</a></li>
                     <li>
-                        <button onClick={() => signOut()}>Logout</button>                    
+                        <LogInOutButton logged={user ? true : false}/>             
                     </li>
                     {/* <li>
-                        {user ? (<button onClick={() => {console.log("logout");signOut();}}>Logout</button>) : (<button onClick={() =>{ signIn();console.log("login")}}>Login</button>)}                      
+                        {((user != null) ? (<button onClick={() => signOut()}>Logout</button>) : (<button onClick={() => signIn()}>Login</button>))}                      
                     </li> */}
                 </ul>
                 </div>
@@ -43,5 +44,3 @@ const Navbar = () => {
     );
 
 }
-
-export default Navbar;
