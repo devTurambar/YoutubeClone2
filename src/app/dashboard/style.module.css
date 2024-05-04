@@ -1,0 +1,22 @@
+.thumbnailsContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem; /* Adjust gap for spacing between thumbnails */
+    grid-auto-rows: min-content; /* Key change for equal rows */    
+}
+.thumbnailsContainer{
+    background-color: #f5f5f5; /* Placeholder background for thumbnails */
+    padding: 1rem; /* Adjust padding if needed */
+}
+/* @media (min-width: 768px) {
+    .videoThumbnails {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .videoThumbnails {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+  } */

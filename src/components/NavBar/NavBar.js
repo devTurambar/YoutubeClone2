@@ -1,11 +1,13 @@
-import { getSession } from "next-auth/react";
 import LogInOutButton from "./LogInOutButton/LogInOutButton";
 import Image from 'next/image';
 import logo from "@/img/youtube_icon.svg"
 import { getUserSession } from "@/app/lib/session";
 
 export default async function Navbar() {
-    const user = await getUserSession();
+    const user = await getUserSession(true);
+    console.log("uyser is ");
+    console.log(user);
+
     return (
         <div className="navbar bg-base-200">
             <div className="flex-1">
@@ -33,7 +35,7 @@ export default async function Navbar() {
                     </li>
                     <li><a>Settings</a></li>
                     <li>
-                        <LogInOutButton/>             
+                    <LogInOutButton/>
                     </li>
                 </ul>
                 </div>

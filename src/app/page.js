@@ -19,18 +19,16 @@ import { getUserSession } from "./lib/session";
 //   redirect("/dashboard");
 // }
 export default async function Home() {
-  // const session = await getServerSession(authOptions);
-  
-  const user = await getUserSession();
+  const user = await getUserSession(true);
   if(user){
     redirect("/dashboard");
   }
 
   return (
     <main>
-      <div className="flex h-screen flex-col items-center justify-center p-24 bg-slate-600">
+      {/* <div className="flex h-screen flex-col items-center justify-center p-24 bg-slate-600">
         <LoginForm />
-      </div>
+      </div> */}
     </main>
   );
 }

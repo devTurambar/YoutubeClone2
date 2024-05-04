@@ -24,11 +24,6 @@ export default async function NoSSRComponent () {
             <li key={e.id}>{e.name}</li>
           ))}
         </ul>
-        {/* <ul>
-          {list.map((item)=> {
-            console.log("item", item);
-          })}
-        </ul> */}
       </div>
   )
 }

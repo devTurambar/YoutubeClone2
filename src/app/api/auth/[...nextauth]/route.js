@@ -36,7 +36,6 @@ const authOption = {
   callbacks: {
     //signIn is called when the user signisn with a google account and is redirected to our application
     async signIn({ account, profile }) {
-      console.log("signin");
       let aux = JSON.stringify(account);
       if (!profile?.email) {
         throw new Error('No profile')
@@ -59,8 +58,6 @@ const authOption = {
     session,
     //This callback is called whenever a JSON Web Token is created (i.e. at sign in) or updated (i.e whenever a session is accessed in the client). The returned value will be encrypted, and it is stored in a cookie.
     async jwt({ token, user, account, profile }) {
-      // console.log("jwts",token, user, account, profile);
-      // console.log("id_token " + account.id_token);
       if (profile) {
         const user = await prisma.user.findUnique({
           where: {
@@ -77,13 +74,10 @@ const authOption = {
       return token
     },
     authorized({ req , token }) {
-      console.log("authorized");
       if(token) return true // If there is a token, the user is authenticated
     },
   },
 }
 const handler = NextAuth(authOption);
-// console.log("Handler is ")
-// console.log(authOption.providers[0].authorization);
 export { handler as GET, handler as POST }
 
