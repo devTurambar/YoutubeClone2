@@ -42,17 +42,20 @@ async function getApi() {
     return(
         <div>
             Hello Mine Playlist
-            <div className={style.thumbnailsContainer}>
-              {
-                playlist?.map((e, i) => {
-                  return(
-                    <div key={i} className={style.videoThumbnails}>
-                      <img src={e.snippet.thumbnails.high.url} alt={e.snippet.title} />
-                    </div>
-                  )
-                })
-              }              
+            <div className='flex justify-center'>
+              <div className={style.thumbnailsContainer}>
+                {
+                  playlist?.map((e, i) => {
+                    return(
+                      <div key={i} className={style.videoThumbnails}>
+                        <img src={e.snippet.thumbnails.high.url} alt={e.snippet.title}/>
+                      </div>
+                    )
+                  })
+                }              
+              </div>             
             </div>
+
         </div>
     )
   }

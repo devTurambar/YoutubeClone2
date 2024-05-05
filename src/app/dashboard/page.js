@@ -9,12 +9,12 @@ export default async function Page(){
     // }
     const user = await getUserSession(true);
     return(
-        <div>
+        <>
             <div>Olá, {user?.name}</div>
             <div>Dashboard</div>
             <div className="my-6">
             <UserPlaylists />
             </div>
-        </div>
+        </>
     )
 }

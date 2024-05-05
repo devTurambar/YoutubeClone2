@@ -5,8 +5,6 @@ import { getUserSession } from "@/app/lib/session";
 
 export default async function Navbar() {
     const user = await getUserSession(true);
-    console.log("uyser is ");
-    console.log(user);
 
     return (
         <div className="navbar bg-base-200">
