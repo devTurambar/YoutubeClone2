@@ -1,8 +1,9 @@
 import { apiRequest } from "@/components/Axios";
 import style from "./style.module.css"
-async function Playlists(){
-    const YOUTUBE_PLAYLIST_ITEMS_API = "https://www.googleapis.com/youtube/v3/playlists";
-    const playlists = await apiRequest(YOUTUBE_PLAYLIST_ITEMS_API, {
+
+const Subscriptions = async() => {
+    const YOUTUBE_PLAYLIST_ITEMS_API = "https://www.googleapis.com/youtube/v3/subscriptions";
+    const subs = await apiRequest(YOUTUBE_PLAYLIST_ITEMS_API, {
         part:"snippet,contentDetails",
         maxResults:50,
         mine:true,
@@ -10,11 +11,11 @@ async function Playlists(){
     });
     return(
         <div>
-            <div>Hello playlists</div>
+            <div>Hello Subscriptions</div>
             <div className='flex justify-center'>
               <div className={style.thumbnailsContainer}>
                 {
-                  playlists?.map((e, i) => {
+                  subs?.map((e, i) => {
                     return(
                       <div key={i} className={style.videoThumbnails}>
                         <img src={e.snippet.thumbnails.high.url} alt={e.snippet.title}/>
@@ -27,4 +28,4 @@ async function Playlists(){
         </div>
     );
 }
-export default Playlists;
+export default Subscriptions;

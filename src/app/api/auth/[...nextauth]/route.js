@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { prisma } from "@/app/lib/prisma";
-import { session } from "@/app/lib/session";
+import { prisma } from "@/lib/prisma";
+import { session } from "@/lib/session";
 
 //client side session, useSession, uses the context API from React
 // const handler = NextAuth({
@@ -70,6 +70,10 @@ const authOption = {
         token.id = user.id
         token.accessToken = account.access_token;
         token.id_token = account.id_token;
+        //TODO LOGIC TO REFRESH ACCESS TOKEN UPON EXPIRATION
+        // let data = new Date();
+        // data.getTime()
+        token.expiration = account.expires_at;
       }
       return token
     },

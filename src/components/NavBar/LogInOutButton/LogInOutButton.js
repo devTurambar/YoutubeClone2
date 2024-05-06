@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react";
 import { getSession, signIn, signOut  } from "next-auth/react";
-import { getUserSession } from "@/app/lib/session";
+import { getUserSession } from "@/lib/session";
 const LogInOutButton = ( {isAuth} ) => {
     console.log(isAuth);
     const [session, setSession] = useState(null);

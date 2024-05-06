@@ -7,6 +7,7 @@ const SideBarTw = ({ children }) => {
               <div className="relative w-20 flex space-y-16 flex-col p-3">
                   <SideBarButton text="Home" action="dashboard"/>
                   <SideBarButton text="Playlists" action="playlists"/>
+                  <SideBarButton text="Subscriptions" action="subscriptions"/>
               </div>
           </nav>
       </div>

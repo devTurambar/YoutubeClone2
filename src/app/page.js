@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import LoginForm from "../components/LoginForm";
 // import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
-import { getUserSession } from "./lib/session";
+import { getUserSession } from "../lib/session";
 
 // Import a component without SSR
 // const NoSSRComponent = dynamic(() => import("./NoSSRComponent/page"), {

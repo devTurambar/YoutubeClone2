@@ -1,7 +1,7 @@
 import LogInOutButton from "./LogInOutButton/LogInOutButton";
 import Image from 'next/image';
 import logo from "@/img/youtube_icon.svg"
-import { getUserSession } from "@/app/lib/session";
+import { getUserSession } from "@/lib/session";
 
 export default async function Navbar() {
     const user = await getUserSession(true);

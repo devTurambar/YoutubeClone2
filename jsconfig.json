@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react", // Use "react-jsx" for React 17+ (optional)
+    "jsx": "react-jsx", // Use "react-jsx" for React 17+ (optional)
     "paths": {
       "@/*": ["./src/*"]
     }

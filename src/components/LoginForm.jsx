@@ -1,6 +1,6 @@
 "use client"
 import { signIn } from "next-auth/react"
-import NoSSRComponent from "../app/NoSSRComponent/page";
+import NoSSRComponent from "./NoSSRComponent/page";
 
 export default function LoginForm(){
     async function login(submit){
