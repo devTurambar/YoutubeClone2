@@ -1,4 +1,4 @@
-import { apiRequest } from "@/components/Axios";
+import { apiRequest } from "@/lib/Axios";
 import style from "./style.module.css"
 
 const Subscriptions = async() => {

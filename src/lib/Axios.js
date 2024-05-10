@@ -19,6 +19,7 @@ export const apiRequest = async (endpoint, params) => {
       // console.log(response.data.items);
       return response.data.items;
   }catch (error) {
-    console.log("ERROR")
+    console.log("ERROR");
+    return error;
   }
 }

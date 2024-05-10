@@ -24,7 +24,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx", // Use "react-jsx" for React 17+ (optional)
+    "jsx": "preserve", // Use "react-jsx" for React 17+ (optional)
     "noImplicitAny": true,
     "incremental": true,
     "plugins": [
