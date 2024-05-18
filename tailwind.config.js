@@ -12,6 +12,12 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        xxs: ['10px', '14px'],
+      },
+      colors: {
+        'yt-sidebar-text': '#0f0f0f',
+      },
     },
   },
   plugins: [require("daisyui")],

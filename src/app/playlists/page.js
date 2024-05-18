@@ -1,6 +1,6 @@
 import { apiRequest } from "@/lib/Axios";
-import style from "./style.module.css"
-import Temp from "@/components/tempClientPlaylists";
+
+import ThumbnailsGrid from "@/components/ThumbnailsGrid";
 async function Playlists(){
     const YOUTUBE_PLAYLIST_ITEMS_API = "https://www.googleapis.com/youtube/v3/playlists";
     const playlists = await apiRequest(YOUTUBE_PLAYLIST_ITEMS_API, {
@@ -15,18 +15,7 @@ async function Playlists(){
         <div>
             <div>Hello playlists</div>
             <div className='flex justify-center'>
-              <div className={style.thumbnailsContainer}>
-                <Temp playlists={playlists}/>
-                {/* {
-                  playlists?.map((e, i) => {
-                    return(
-                      <div key={i} className={style.videoThumbnails}>
-                        <img src={e.snippet.thumbnails.high.url} alt={e.snippet.title}/>
-                      </div>
-                    )
-                  })
-                }               */}
-              </div>             
+                <ThumbnailsGrid list={playlists} context="playlists"/>        
             </div>
         </div>
     );

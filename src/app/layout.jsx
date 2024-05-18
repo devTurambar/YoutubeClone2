@@ -24,12 +24,12 @@ export default function RootLayout({ children }) {
           {/* I cannot use directly QueryClient on a server component, but I can create a custom provider (client), and wrap my server app with it, like I did below */}
           <ReactQueryProvider>
             <Navbar />
-              <div className="flex h-screen">
-                <SideBarTw />
-                <div className="grow shrink-0">
-                  {children}
-                </div>
-              </div>          
+            <div className="flex h-screen">
+              <SideBarTw />
+              <div className="grow shrink-0">
+                {children}
+              </div>
+            </div>          
           </ReactQueryProvider>
         </body>        
     </html>
