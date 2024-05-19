@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
                 <Navbar />
                 <div className="flex h-screen">
                   <SideBarTw />
-                  {/* <SideBarTwMax /> */}
+                  <SideBarTwMax />
                   <div className="grow shrink-0">
                     {children}
                   </div>

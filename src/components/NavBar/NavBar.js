@@ -21,11 +21,11 @@ export default function Navbar() {
 
     return (
         <div className="navbar bg-white fixed h-16 pl-0 top-0 left-0">
-            <MenuButton outerContainer="cursor-pointer m-auto w-20 ml-3" innerContainer="flex flex-col hover:bg-gray-100 rounded-full p-4"/>
+            <MenuButton outerContainer="cursor-pointer m-auto w-12 ml-3" innerContainer="flex flex-col hover:bg-gray-100 rounded-full p-4"/>
 
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl hover:bg-gray-100">
-                    <span className="h-10"><Image className="w-fit h-full" src="/icons/youtube_icon.svg" width="40" height="40" alt="YoutubeLogo" /></span>
+                    <span className="h-10"><Image className="w-fit h-full" src="/icons/youtube_icon.svg" width="30" height="30" alt="YoutubeLogo" /></span>
                     Youtube
                 </a>
             </div>
