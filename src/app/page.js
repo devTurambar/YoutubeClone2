@@ -20,6 +20,7 @@ import { getUserSession } from "../lib/session";
 // }
 export default async function Home() {
   const user = await getUserSession(true);
+  console.log("USER PAGE")
   if(user){
     redirect("/dashboard");
   }

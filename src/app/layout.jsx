@@ -1,14 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { getServerSession } from "next-auth";
-import Providers from "@/Providers/Providers";
 import Navbar from "@/components/NavBar/NavBar";
-import SideBar from "@/components/SideBar/SideBar";
-import NewSideBar from "@/components/SideBar/NewSideBar";
-import NewSideBar2 from "@/components/SideBar/NewSideBar2";
-import SideBarTw from "@/components/SideBar/SideBarTw";
-// import AuthProvider from "./lib/AuthProvider";
+import SideBarTw from "@/components/SideBar/SideBarMinimized/SideBarTw";
+import SideBarTwMax from "@/components/SideBar/SideBarExpanded/SideBarTwMax";
 import ReactQueryProvider from "@/Providers/ReactQueryProvider";
+import { GlobalStateProvider } from "@/Providers/GlobalStateContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,20 +13,24 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const session = getServerSession();
   return (
     <html lang="en">
         <body className={inter.className}>
-          {/* I cannot use directly QueryClient on a server component, but I can create a custom provider (client), and wrap my server app with it, like I did below */}
-          <ReactQueryProvider>
-            <Navbar />
-            <div className="flex h-screen">
-              <SideBarTw />
-              <div className="grow shrink-0">
-                {children}
+          <GlobalStateProvider>
+            {/* I cannot use directly QueryClient on a server component, but I can create a custom provider (client), and wrap my server app with it, like I did below */}
+            <ReactQueryProvider>
+              <div className="pl-20 pt-16">
+                <Navbar />
+                <div className="flex h-screen">
+                  <SideBarTw />
+                  {/* <SideBarTwMax /> */}
+                  <div className="grow shrink-0">
+                    {children}
+                  </div>
+                </div>                
               </div>
-            </div>          
-          </ReactQueryProvider>
+            </ReactQueryProvider>
+          </GlobalStateProvider>
         </body>        
     </html>
   );

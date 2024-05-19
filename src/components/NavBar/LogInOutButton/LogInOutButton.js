@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { getSession, signIn, signOut  } from "next-auth/react";
 import { getUserSession } from "@/lib/session";
 const LogInOutButton = ( {isAuth} ) => {
-    console.log(isAuth);
     const [session, setSession] = useState(null);
     //can have async functions on client components, if inside useEffect
     useEffect(() => {

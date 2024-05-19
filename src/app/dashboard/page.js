@@ -9,9 +9,15 @@ export default async function Page(){
     const user = await getUserSession(true);
     return(
         <>
-            <div>Olá, {user?.name}</div>
-            <div>Dashboard</div>
+            <div>
+                Olá, {user?.name}
+            </div>
+            <div>
+                Dashboard
+            </div>
             <div className="my-6">
+            </div>
+            <div className="myModal">
             </div>
         </>
     )

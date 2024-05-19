@@ -2,6 +2,9 @@
 import { apiRequest } from "@/lib/Axios"
 import { useQuery } from "@tanstack/react-query";
 import style from "@/app/playlists/style.module.css"
+import { useContext } from "react";
+import GlobalStateContext from "@/Providers/GlobalStateContext";
+
 const ThumbnailsGrid = ({ list, context }: {list:object, context:string}) => {
     //One note that if using the hydration approach you should add refetchOnMount: false and refetchOnReconnect: false to the query options (inside the client component) so that the query is not re-fetched when the client is hydrated.
     const {data, error} = useQuery({
@@ -14,6 +17,8 @@ const ThumbnailsGrid = ({ list, context }: {list:object, context:string}) => {
         refetchIntervalInBackground: false, // Prevents re-fetching when the tab is not in focus.
         refetchOnWindowFocus: false, //Disables re-fetching when the browser window regains focus.
     })
+    // const global = useContext(GlobalStateContext);
+    // console.log(global);
     if(error){
         return <h2>Msg de erro: {error.message}</h2>
     }

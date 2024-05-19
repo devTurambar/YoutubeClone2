@@ -1,20 +1,30 @@
+"use client"
 import LogInOutButton from "./LogInOutButton/LogInOutButton";
 import Image from 'next/image';
 // import logo from "@/img/icons/youtube_icon.svg"
 import { getUserSession } from "@/lib/session";
+import MenuButton  from "../MenuButton/MenuButton"
+import { useContext, useEffect, useState } from "react";
+import GlobalStateContext from "@/Providers/GlobalStateContext";
 
-export default async function Navbar() {
-    const user = await getUserSession(true);
+export default function Navbar() {
+    console.log("NAVBAR")
+    const [session, setSession] = useState(null);
+    useEffect(() => {
+        (async () => {
+            const sessionData = await getUserSession(false);
+            setSession(sessionData);
+        })
+    },[]);
+    const global = useContext(GlobalStateContext);
+    console.log(global);
 
     return (
-        <div className="navbar bg-white fixed h-16 pl-0">
-            <div className={`cursor-pointer m-auto flex flex-col w-20`}>
-                <div className={`bar1`}></div>
-                <div className={`bar2`}></div>
-                <div className={`bar3`}></div>
-            </div> 
+        <div className="navbar bg-white fixed h-16 pl-0 top-0 left-0">
+            <MenuButton outerContainer="cursor-pointer m-auto w-20 ml-3" innerContainer="flex flex-col hover:bg-gray-100 rounded-full p-4"/>
+
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">
+                <a className="btn btn-ghost text-xl hover:bg-gray-100">
                     <span className="h-10"><Image className="w-fit h-full" src="/icons/youtube_icon.svg" width="40" height="40" alt="YoutubeLogo" /></span>
                     Youtube
                 </a>
@@ -26,7 +36,7 @@ export default async function Navbar() {
                 <div className="dropdown dropdown-end">
                 <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                    <img alt="YT" src={user? user.image : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                    <img alt="YT" src={session? user.session : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
                     </div>
                 </div>
                 <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">

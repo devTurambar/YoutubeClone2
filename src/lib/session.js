@@ -6,7 +6,8 @@ export const session = async ({session, token}) => {
   session.user.accessToken = token.accessToken;
   session.accessToken = token.accessToken
   session.id_token =  token.id_token;
-  session.expires_at = token.expires_at;
+  session.user.expires_at = token.expires_at;
+  console.log("session")
   return session;
 }
 
@@ -17,14 +18,21 @@ export const getUserSession = async (isServerComponent) => {
     },
   })
   try { 
-    console.log("trys")
-    if (!authUserSession) throw new Error('unauthorized');
+    console.log("trys");
+    if (!authUserSession) {
+      throw new Error('unauthorized');
+    }
+        //have to convert current date from miliseconds to seconds, thats why /1000
+    // if(authUserSession?.expires_at < Date.now()/1000){
+    //   throw new Error("Access Token Expired");
+    // }
     //Checks if the component that called GetUserSession is a client or server component...if client component, return less (non-sensitive) information
     if(!isServerComponent){
+      console.log("client component")
       return authUserSession?.user.name;
     }
     else{
-      console.log("authenticated")
+      console.log("authenticated SERVER component")
       return authUserSession?.user;
     }
   }catch(e){
