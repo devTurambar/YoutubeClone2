@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar/NavBar";
 import SideBarTw from "@/components/SideBar/SideBarMinimized/SideBarTw";
-import SideBarTwMax from "@/components/SideBar/SideBarExpanded/SideBarTwMax";
+import SideBarContainer from "@/components/SideBar/SideBarContainer/SideBarContainer";
 import ReactQueryProvider from "@/Providers/ReactQueryProvider";
 import { GlobalStateProvider } from "@/Providers/GlobalStateContext";
 
@@ -22,8 +22,7 @@ export default function RootLayout({ children }) {
               <div className="pl-20 pt-16">
                 <Navbar />
                 <div className="flex h-screen">
-                  <SideBarTw />
-                  <SideBarTwMax />
+                  <SideBarContainer />
                   <div className="grow shrink-0">
                     {children}
                   </div>

@@ -3,7 +3,8 @@ import React from "react";
 
 interface MenuButtonProps{
     outerContainer: string,
-    innerContainer: string
+    innerContainer: string,
+    func: object
 }
 
 const MenuButton: React.FC<MenuButtonProps> = ( MenuButtonProps ) => {

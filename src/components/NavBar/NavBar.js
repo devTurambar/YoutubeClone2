@@ -20,8 +20,8 @@ export default function Navbar() {
     console.log(global);
 
     return (
-        <div className="navbar bg-white fixed h-16 pl-0 top-0 left-0">
-            <MenuButton outerContainer="cursor-pointer m-auto w-12 ml-3" innerContainer="flex flex-col hover:bg-gray-100 rounded-full p-4"/>
+        <div className="navbar bg-white fixed h-16 pl-0 top-0 left-18">
+            <MenuButton outerContainer="cursor-pointer m-auto w-12 ml-3 hidden" innerContainer="flex flex-col hover:bg-gray-100 rounded-full p-4"/>
 
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl hover:bg-gray-100">
@@ -36,7 +36,7 @@ export default function Navbar() {
                 <div className="dropdown dropdown-end">
                 <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                    <img alt="YT" src={session? user.session : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                    <img alt="YT" src={session? user.session : "/icons/silhouette.svg"} />
                     </div>
                 </div>
                 <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
