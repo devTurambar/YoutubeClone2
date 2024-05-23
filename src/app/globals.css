@@ -27,6 +27,9 @@
 .h-webkit-available{
     height:-webkit-fill-available;
 }
+.w-webkit-available{
+    width:-webkit-fill-available;
+}
 
 /* width */
 ::-webkit-scrollbar {

@@ -20,37 +20,38 @@ export default function Navbar() {
     console.log(global);
 
     return (
-        <div className="navbar bg-white fixed h-16 pl-0 top-0 left-18">
+        <div className="navbar w-webkit-available bg-white fixed h-16 pl-0 top-0 left-18 flex justify-between">
             <MenuButton outerContainer="cursor-pointer m-auto w-12 ml-3 hidden" innerContainer="flex flex-col hover:bg-gray-100 rounded-full p-4"/>
-
-            <div className="flex-1">
+            <div className="">
                 <a className="btn btn-ghost text-xl hover:bg-gray-100">
-                    <span className="h-10"><Image className="w-fit h-full" src="/icons/youtube_icon.svg" width="30" height="30" alt="YoutubeLogo" /></span>
-                    Youtube
+                    <span className="h-10"><Image className="h-full" src="/icons/youtube_icon.svg" width="30" height="30" alt="YoutubeLogo" /></span>
+                    <span className="text-lg">Youtube</span>
                 </a>
             </div>
-            <div className="flex-none gap-2">
+            <div>
                 <div className="form-control">
-                <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
-                </div>
+                    <input type="text" placeholder="Search" className="input input-bordered w-28 md:w-auto" />
+                </div>                
+            </div>
+            <div className="flex-none gap-2">
                 <div className="dropdown dropdown-end">
-                <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                    <img alt="YT" src={session? user.session : "/icons/silhouette.svg"} />
+                    <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                        <img alt="YT" src={session? user.session : "/icons/silhouette.svg"} />
+                        </div>
                     </div>
-                </div>
-                <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                    <li>
-                        <a className="justify-between">
-                            Profile
-                            <span className="badge">New</span>
-                        </a>
-                    </li>
-                    <li><a>Settings</a></li>
-                    <li>
-                    <LogInOutButton/>
-                    </li>
-                </ul>
+                    <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                        <li>
+                            <a className="justify-between">
+                                Profile
+                                <span className="badge">New</span>
+                            </a>
+                        </li>
+                        <li><a>Settings</a></li>
+                        <li>
+                        <LogInOutButton/>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

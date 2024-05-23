@@ -23,10 +23,10 @@ const SideBarTw = ({maximized, toggleSideBar}) => {
 
   return (
     <aside className="min-h-0 flex overflow-hidden shrink h-webkit-available left-0 top-0 fixed">
-        <nav aria-label="Sidebar" className={`block flex-shrink-0 bg-white ${maximized ? "overflow-hidden" : "overflow-auto"} `}>
+        <nav aria-label="Sidebar" className={`block flex-shrink-0 bg-white overflow-hidden`}>
             <div className="relative w-20 w-\[300px\] flex flex-col gap-16 p-3"> 
               <div onClick={() => toggleSideBar()}>
-                <MenuButton outerContainer="cursor-pointer p-3 m-auto hover:bg-gray-100 rounded-full" innerContainer="rounded-full hover:bg-gray-100 flex flex-col"/>             
+                <MenuButton outerContainer="cursor-pointer p-3 m-auto hover:bg-gray-100 rounded-full" innerContainer="rounded-full hover:bg-gray-100 flex flex-col items-center"/>             
               </div>
               <SideBarButton text="Home" action="dashboard"/>
               <SideBarButton text="Shorts" action="shorts"/>
