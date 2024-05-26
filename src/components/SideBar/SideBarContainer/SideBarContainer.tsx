@@ -14,6 +14,9 @@ const SideBarContainer = () => {
             </div>
             <div className={`${maximized ? "block" : "hidden"}`}>
                 <SideBarTwMax maximized={maximized}/>
+                <div className="w-36">
+
+                </div>
             </div>
         </div>
     );
