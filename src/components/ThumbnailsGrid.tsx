@@ -2,8 +2,6 @@
 import { apiRequest } from "@/lib/Axios"
 import { useQuery } from "@tanstack/react-query";
 import style from "@/app/playlists/style.module.css"
-import { useContext } from "react";
-import GlobalStateContext from "@/Providers/GlobalStateContext";
 
 const ThumbnailsGrid = ({ list, context }: {list:object, context:string}) => {
     //One note that if using the hydration approach you should add refetchOnMount: false and refetchOnReconnect: false to the query options (inside the client component) so that the query is not re-fetched when the client is hydrated.
