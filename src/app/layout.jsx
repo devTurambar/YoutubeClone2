@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
                 <Navbar />
                 <div className="flex h-screen">
                   <SideBarContainer />
-                  <div className="grow shrink-0">
+                  <div className="grow shrink">
                     {children}
                   </div>
                 </div>                

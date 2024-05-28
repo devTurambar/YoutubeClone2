@@ -3,7 +3,7 @@ import ThumbnailsGrid from "@/components/ThumbnailsGrid";
 import { getUserSession } from "@/lib/session";
 
 const Subscriptions = async() => {
-    const user = await getUserSession();
+    const user = await getUserSession(true);
     let subs;
     //have to convert current date from miliseconds to seconds, thats why /1000
     if(user && user.expires_at > Date.now()/1000){
@@ -19,8 +19,8 @@ const Subscriptions = async() => {
     return(
         <div>
             <div>Hello Subscriptions</div>
-            <div className='flex justify-center'>
-              {user && user.expires_at > Date.now()/1000 ? <ThumbnailsGrid list={subs} context="subs"/> : "You need to login to acess this feature" }           
+            <div className='flex justify-center'> 
+                {user && (user.expires_at > Date.now()/1000) ? (<ThumbnailsGrid list={subs} context="subs"/>) : "You need to login to acess this feature" }           
             </div>
         </div>
     );
