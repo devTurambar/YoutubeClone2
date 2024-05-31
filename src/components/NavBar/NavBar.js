@@ -5,7 +5,7 @@ import { getUserSession } from "@/lib/session";
 import MenuButton  from "../MenuButton/MenuButton"
 // import { useContext, useEffect, useState } from "react";
 import GlobalStateContext from "@/Providers/GlobalStateContext";
-import Search from "../Search/Search";
+import SearchBar from "../Search/SearchBar";
 import Logo from "../Logo/Logo";
 
 export default async function Navbar() {
@@ -25,7 +25,7 @@ export default async function Navbar() {
         <div className="navbar w-webkit-available bg-white fixed h-16 pl-0 top-0 left-18 flex justify-between">
             <MenuButton outerContainer="cursor-pointer m-auto w-12 ml-3 hidden" innerContainer="flex flex-col hover:bg-gray-100 rounded-full p-4"/>
             <Logo />
-            <Search />              
+            <SearchBar />              
             <div className="flex-none gap-2">
                 <div className="dropdown dropdown-end">
                     <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
