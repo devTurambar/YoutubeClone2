@@ -25,9 +25,7 @@ const Search = async ({
         <div>
             Hello {searchParams.search}
             <div className='flex justify-center'>
-                <Suspense>
-                    {user && (user.expires_at > Date.now()/1000) ? (<ThumbnailsGrid list={result} context="search"/>) : "You need to login to acess this feature" }        
-                </Suspense>
+                {user && (user.expires_at > Date.now()/1000) ? (<SearchResults list={result} context="search"/>) : "You need to login to acess this feature" }        
             </div>
         </div>
     );
