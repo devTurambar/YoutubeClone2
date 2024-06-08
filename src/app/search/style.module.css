@@ -1,0 +1,12 @@
+
+.videoThumbnails {
+    max-width:220px;
+    object-fit: contain;
+    flex: 1;
+}
+.videoDescriptions{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    gap:1rem;
+}

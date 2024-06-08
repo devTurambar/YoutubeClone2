@@ -1,9 +1,13 @@
 "use client"
 import { apiRequest } from "@/lib/Axios"
 import { useQuery } from "@tanstack/react-query";
-import style from "@/app/playlists/style.module.css"
+import style from "@/app/search/style.module.css"
+import Link from "next/link";
+import { useState } from "react";
 
 const SearchResults = ({ list, context }: {list:object, context:string}) => {
+    const [v, setV] = useState("");
+
     //One note that if using the hydration approach you should add refetchOnMount: false and refetchOnReconnect: false to the query options (inside the client component) so that the query is not re-fetched when the client is hydrated.
     const {data, error} = useQuery({
         queryKey: [context],
@@ -24,15 +28,26 @@ const SearchResults = ({ list, context }: {list:object, context:string}) => {
         return(
             <div className="flex flex-col gap-4">
                 {
-                  data?.map((e:{id:{kind:string},snippet:{thumbnails:{high:{url:string}},description:string,title:string}},i:Number) => {
+                  data?.map((e:{id:{kind:string, videoId:string},snippet:{thumbnails:{high:{url:string}},description:string,title:string}},i:Number) => {
                     return(
-                        <div className="flex" key={`list-${i}`}>
-                            <div>
-                                <img src={e?.snippet?.thumbnails?.high?.url ?? "newImgUrl"} alt={e?.snippet?.title ?? "alt title"}/>
+                        <div className="flex gap-4" key={`list-${i}`}>
+                            <div className="flex flex-[2_2] gap-2">
+                                <div className={style.videoThumbnails}>
+                                    <Link href={{
+                                        pathname:"/player",
+                                        query: {v:e?.id?.videoId}
+                                    }}
+                                    >
+                                        <img className="rounded-lg" src={e?.snippet?.thumbnails?.high?.url ?? "newImgUrl"} alt={e?.snippet?.title ?? "alt title"}/>
+                                    </Link>
+                                </div>
+                                <div className={style.videoDescriptions}>
+                                    <div className="text-base">{e?.snippet?.title}</div>
+                                    <div className="text-xs">{e?.snippet?.description}</div>
+                                </div>
                             </div>
-                            <div className="flex flex-col">
-                                <div>{e?.snippet?.title}</div>
-                                <div>{e?.snippet?.description}</div>
+                            <div className="flex-[1_1]">
+
                             </div>
                         </div>
                     )
