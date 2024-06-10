@@ -46,9 +46,9 @@ const SearchResults = ({ list, context }: {list:object, context:string}) => {
                                     <div className="text-xs">{e?.snippet?.description}</div>
                                 </div>
                             </div>
-                            <div className="flex-[1_1]">
+                            {/* <div className="flex-[1_1]">
 
-                            </div>
+                            </div> */}
                         </div>
                     )
                   })

@@ -3,6 +3,7 @@ import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { prisma } from "@/lib/prisma";
 import { session } from "@/lib/session";
+import refreshAccessToken from "@/lib/refreshToken";
 
 //client side session, useSession, uses the context API from React
 // const handler = NextAuth({
@@ -59,7 +60,7 @@ const authOption = {
     //This callback is called whenever a JSON Web Token is created (i.e. at sign in) or updated (i.e whenever a session is accessed in the client). The returned value will be encrypted, and it is stored in a cookie.
     async jwt({ token, user, account, profile }) {
       console.log("token is")
-      // console.log(token, user, account, profile);
+      console.log(token, user, account, profile);
       if (profile) {
         const user = await prisma.user.findUnique({
           where: {
@@ -77,7 +78,7 @@ const authOption = {
         // data.getTime()
         token.expires_at = account.expires_at;
       }
-      return token
+      return token;
     },
     authorized({ req , token }) {
       if(token) return true // If there is a token, the user is authenticated
