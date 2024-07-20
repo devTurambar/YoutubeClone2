@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { getSession, signIn, signOut  } from "next-auth/react";
 import { getUserSession } from "@/lib/session";
-const LogInOutButton = ( {isAuth} ) => {
+const LogInButton = ( {isAuth} ) => {
     const [session, setSession] = useState(null);
     //can have async functions on client components, if inside useEffect
     useEffect(() => {
@@ -21,8 +21,19 @@ const LogInOutButton = ( {isAuth} ) => {
         }
     }
     return (
-        <button onClick={handleClick}>{session ? "Log out" : "Log in"}</button>            
+        <div onClick={handleClick} className="cursor-pointer">
+            <div className="flex items-center rounded-3xl border h-8 px-4 gap-4">
+                <div tabIndex="0" role="button" className="">
+                    <div className="w-5">
+                        <img alt="YT" src={"/icons/generic_avatar.svg"} />
+                    </div>
+                </div>
+                <div className="text-xs">
+                    Sign In
+                </div>
+            </div>
+        </div>          
     );
 
 }
-export default LogInOutButton;
+export default LogInButton;

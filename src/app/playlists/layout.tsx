@@ -1,6 +1,6 @@
 import { apiRequest } from "@/lib/Axios";
 import style from "./style.module.css"
-import Temp from "@/components/ThumbnailsGrid";
+import Temp from "@/components/ThumbnailsGrid/ThumbnailsGrid";
 async function PlaylistsLayout({children}){
     return(
         <div>

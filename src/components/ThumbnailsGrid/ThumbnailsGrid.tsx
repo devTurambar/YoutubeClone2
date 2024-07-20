@@ -3,6 +3,7 @@ import { apiRequest } from "@/lib/Axios"
 import { useQuery } from "@tanstack/react-query";
 import style from "@/app/playlists/style.module.css"
 import Link from "next/link";
+import VideoInfoSection from "./VideoInfoSection/VideoInfoSection";
 
 const ThumbnailsGrid = ({ list, context }: {list:object, context:string}) => {
     //One note that if using the hydration approach you should add refetchOnMount: false and refetchOnReconnect: false to the query options (inside the client component) so that the query is not re-fetched when the client is hydrated.
@@ -23,24 +24,35 @@ const ThumbnailsGrid = ({ list, context }: {list:object, context:string}) => {
     }
 
     if(data){
+      console.log("data is")
+      console.log("data",data)
         return(
             <div className={style.thumbnailsContainer}>
                 {
-                  data?.map((e:{id:string, snippet:{thumbnails:{high:{url:string}},title:string}},i:Number) => {
+                  data?.map((e:{id:string, snippet:{thumbnails:{high:{url:string}},title:string, description:string, channelId:string}},i:Number) => {
                     return(
                       <div key={`list-${i}`} className={style.videoThumbnails}>
                         <Link href={{
                           pathname:"player",
                           query: {v:e?.id}
                         }}>
-                          <img src={e?.snippet?.thumbnails?.high?.url ?? "newImgUrl"} alt={e?.snippet?.title ?? "alt title"}/>
+                          <img className="rounded-xl" src={e?.snippet?.thumbnails?.high?.url ?? "newImgUrl"} alt={e?.snippet?.title ?? "alt title"}/>
                         </Link>
+                        <VideoInfoSection channelId={"UCS5R_abGJziuxS0rJymOvSg"} videoDescription={"e?.snippet?.description"}/>    
                       </div>
                     )
                   })
-                }              
+                }          
             </div>
         )        
+    }
+    else{
+      //do something in case no recommended videos
+      return(
+        <div>
+          No popular videos in your area
+        </div>
+      )
     }
 
 }

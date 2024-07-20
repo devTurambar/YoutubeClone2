@@ -28,7 +28,7 @@ const SideBarTw = ({maximized, toggleSideBar}) => {
               <div onClick={() => toggleSideBar()}>
                 <MenuButton outerContainer="cursor-pointer p-3 m-auto hover:bg-gray-100 rounded-full" innerContainer="rounded-full hover:bg-gray-100 flex flex-col items-center"/>             
               </div>
-              <SideBarButton text="Home" action="dashboard"/>
+              <SideBarButton text="Home" action="/"/>
               <SideBarButton text="Shorts" action="shorts"/>
               <SideBarButton text="Subscriptions" action="subscriptions"/>
               <SideBarButton text="You" action="you"/>

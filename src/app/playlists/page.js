@@ -1,7 +1,6 @@
 import { apiRequest } from "@/lib/Axios";
 import { getUserSession } from "@/lib/session";
-
-import ThumbnailsGrid from "@/components/ThumbnailsGrid";
+import PlaylistsGrid from "@/components/Playlists/PlaylistsGrid";
 async function Playlists(){
     const user = await getUserSession(true);
     let playlists;
@@ -20,7 +19,7 @@ async function Playlists(){
         <div>
             <div>Hello playlists</div>
             <div className='flex justify-center'>
-                {user && (user.expires_at > Date.now()/1000) ? (<ThumbnailsGrid list={playlists} context="playlists"/>) : "You need to login to acess this feature" }        
+                {user && (user.expires_at > Date.now()/1000) ? (<PlaylistsGrid list={playlists} context="playlists"/>) : "You need to login to acess this feature" }        
             </div>
         </div>
     );

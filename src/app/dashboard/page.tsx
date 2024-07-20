@@ -1,4 +1,4 @@
-import ThumbnailsGrid from "@/components/ThumbnailsGrid";
+import ThumbnailsGrid from "@/components/ThumbnailsGrid/ThumbnailsGrid";
 import { getUserSession } from "../../lib/session";
 import { apiRequest } from "@/lib/Axios";
 
