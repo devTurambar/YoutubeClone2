@@ -59,8 +59,6 @@ const authOption = {
     session,
     //This callback is called whenever a JSON Web Token is created (i.e. at sign in) or updated (i.e whenever a session is accessed in the client). The returned value will be encrypted, and it is stored in a cookie.
     async jwt({ token, user, account, profile }) {
-      console.log("token is")
-      console.log(token, user, account, profile);
       if (profile) {
         const user = await prisma.user.findUnique({
           where: {

@@ -12,6 +12,7 @@ const Search = async ({
     params: { slug: string }
     searchParams: { [key: string]: string | string[] | undefined }
   }) =>{
+    console.log("Search page")
     // const user = await getUserSession(true);
     let result = await apiRequest("https://www.googleapis.com/youtube/v3/search",{
         part: "snippet",

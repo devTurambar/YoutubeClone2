@@ -14,12 +14,6 @@ const SideBarTw = ({maximized, toggleSideBar}) => {
       setSession(sessionData);
     });
   },[]);
-  // const c = useContext(GlobalStateContext);
-  // c.updateState("State updated");
-  // console.log(c);
-  // console.log("user");
-  // console.log(user);
-  // console.log("user");
 
   return (
     <aside className="min-h-0 flex overflow-hidden shrink h-webkit-available left-0 top-0 fixed">

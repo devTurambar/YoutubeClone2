@@ -7,7 +7,6 @@ export const session = async ({session, token}) => {
   session.accessToken = token.accessToken
   session.id_token =  token.id_token;
   session.user.expires_at = token.expires_at;
-  console.log("session")
   return session;
 }
 
@@ -28,15 +27,15 @@ export const getUserSession = async (isServerComponent) => {
     // }
     //Checks if the component that called GetUserSession is a client or server component...if client component, return less (non-sensitive) information
     if(!isServerComponent){
-      console.log("client component")
       return authUserSession?.user.name;
     }
     else{
-      console.log("authenticated SERVER component")
       return authUserSession?.user;
     }
   }catch(e){
     console.log("cath")
     console.log(e);
+    //no user
+    return false;
   }
 }

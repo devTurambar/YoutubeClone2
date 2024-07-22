@@ -25,7 +25,6 @@ const ThumbnailsGrid = ({ list, context }: {list:object, context:string}) => {
 
     if(data){
       console.log("data is")
-      console.log("data",data)
         return(
             <div className={style.thumbnailsContainer}>
                 {

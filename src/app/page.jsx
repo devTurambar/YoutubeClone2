@@ -39,8 +39,6 @@ export default async function Home() {
         key:process.env.YOUTUBE_API_KEY
     }, true);
 
-    console.log("channel",channel)
-
   return (
     <main>
       <ThumbnailsGrid list={popular} context="popular"/>

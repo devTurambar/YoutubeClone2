@@ -11,7 +11,6 @@ import Logo from "../Logo/Logo";
 
 export default async function Navbar() {
     const user = await getUserSession(true);
-    console.log(user)
     // const [session, setSession] = useState(null);
     // useEffect(() => {
     //     (async () => {

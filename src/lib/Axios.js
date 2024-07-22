@@ -4,7 +4,7 @@ import { getUserSession } from '@/lib/session';
 export const apiRequest = async (endpoint, params, noUser) => {
   const user = await getUserSession(true);
   const axios = require('axios');
-  if(!noUser){
+  if(!noUser && noUser != undefined){
     try {
         const response = await axios.get(endpoint, {
           headers: {
@@ -20,23 +20,23 @@ export const apiRequest = async (endpoint, params, noUser) => {
         // console.log(response.data.items);
         return response.data.items;
     }catch (error) {
-      console.log("ERROR");
+      console.log("ERROREEE", error);
       return error;
     }
   }else{
     try {
+      console.log("no erroreee")
       const response = await axios.get(endpoint, {
         headers: {
           'Content-Type' : 'application/json',
           'Accept' : 'application/json',
         },
         params: params,
-      })
-      console.log(response.data.items);
+      });
       // console.log(response.data.items);
       return response.data.items;
     }catch (error) {
-      console.log(error,"ERROR");
+      console.log(error)
       return error;
     }
   }
