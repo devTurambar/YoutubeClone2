@@ -46,8 +46,8 @@ const SearchResults = ({ list, context }: {list:object, context:string}) => {
             <div className="flex flex-col gap-4">
                 <button onClick={checkCachedData}>CLICK TO REFETCH</button>
                 {
-                    data && !(data instanceof Error) ? (
-                        data.map((e:{id:{kind:string, videoId:string},snippet:{thumbnails:{high:{url:string}},description:string,title:string}},i:Number) => {
+                    list && !(list instanceof Error) ? (
+                        list.map((e:{id:{kind:string, videoId:string},snippet:{thumbnails:{high:{url:string}},description:string,title:string}},i:Number) => {
                         return(
                             <div className="flex gap-4" key={`list-${i}`}>
                                 <div className="flex flex-[2_2] gap-2">
